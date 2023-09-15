@@ -90,7 +90,7 @@ func Login(c *fiber.Ctx) error {
 		Name:     "jwt",
 		Value:    ss,
 		Expires:  time.Now().Add(time.Hour * 24),
-		HTTPOnly: true, // Becouse the frontend cannot access this cookie. This cookie is meant only to be stored in frontend and send it, but the frontend doesn't need to access it.
+		HTTPOnly: true, // Because the frontend cannot access this cookie. This cookie is meant only to be stored in frontend and send it, but the frontend doesn't need to access it.
 	}
 
 	c.Cookie(&cookie)
