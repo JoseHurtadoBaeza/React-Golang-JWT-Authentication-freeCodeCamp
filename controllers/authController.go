@@ -100,3 +100,30 @@ func Login(c *fiber.Ctx) error {
 	})
 
 }
+
+func User(c *fiber.Ctx) error {
+
+	mySigningKey := []byte("AllYourBase")
+
+	cookie := c.Cookies("jwt") // Get the cookie
+
+	token, err := jwt.ParseWithClaims(cookie, &jwt.RegisteredClaims{}, func(token *jwt.Token) (interface{}, error) {
+		return []byte(mySigningKey), nil
+	})
+
+	if err != nil {
+		c.Status(fiber.StatusUnauthorized)
+		return c.JSON(fiber.Map{
+			"message": "Unauthenticated",
+		})
+	}
+
+	claims := token.Claims.(*jwt.RegisteredClaims)
+
+	var user models.User
+
+	database.DB.Where("id = ?", claims.Issuer).First(&user)
+
+	return c.JSON(user)
+
+}
