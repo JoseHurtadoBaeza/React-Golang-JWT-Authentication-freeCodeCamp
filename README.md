@@ -1,4 +1,4 @@
-## Go Fiber JWT Authentication
+# Go Fiber JWT Authentication
 
 This is a tutorial project that demonstrates how to implement JWT (JSON Web Token) authentication using the Go Fiber web framework.
 
