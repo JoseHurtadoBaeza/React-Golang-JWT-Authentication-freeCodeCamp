@@ -63,3 +63,7 @@ The project is structured as follows:
 - `POST /api/login`: Log in a user and receive a JWT cookie.
 - `GET /api/user`: Retrieve the authenticated user's information.
 - `POST /api/logout`: Log out the user by removing the JWT cookie.
+
+### Documentation
+
+You can check the complete documentation here: https://josehurtadobaeza.super.site/databases/blog-posts-database/doing-golang-jwt-authentication-tutorial-freecodecamp
